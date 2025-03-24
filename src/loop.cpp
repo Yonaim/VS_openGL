@@ -35,8 +35,12 @@ void renderFrameLoop(Renderer &renderer, GLFWwindow *window)
 
 		glDrawPixels(SCR_WIDTH, SCR_HEIGHT, GL_RGB, GL_FLOAT, &renderer.OutputImage[0]);
 
-		computeRayTracing(renderer);
-		flipImageVertically(renderer.OutputImage, SCR_WIDTH, SCR_HEIGHT);
+		if (needRecompute == true)
+		{
+			computeRayTracing(renderer);
+			flipImageVertically(renderer.OutputImage, SCR_WIDTH, SCR_HEIGHT);
+			needRecompute = false;
+		}
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
