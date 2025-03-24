@@ -18,7 +18,7 @@ int main()
 	GLFWwindow *window = NULL;
 
 	// set up
-	renderer.OutputImage.reserve(SCR_WIDTH * SCR_HEIGHT * 3);
+	renderer.OutputImage.resize(SCR_WIDTH * SCR_HEIGHT * 3);
 	glfwSetErrorCallback(errorCallback);
 	init_scene(renderer.scene);
 	window = init_glfw();
