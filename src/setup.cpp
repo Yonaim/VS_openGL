@@ -45,6 +45,8 @@ void init_scene(Scene &scene)
 
 GLFWwindow *init_glfw()
 {
+	glfwSetErrorCallback(errorCallback);
+
 	if (!glfwInit())
 	{
 		std::cout << "Failed to initialize GLFW" << std::endl;
